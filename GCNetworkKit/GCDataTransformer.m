@@ -20,6 +20,7 @@
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
 #import "GCDataTransformer.h"
+#import "JSONKit.h"
 
 #pragma mark JSON -> NSObject
 
@@ -31,9 +32,15 @@ void TransformJSONDataToNSObject(NSData *data, void (^callback)(id object, NSErr
         id object = nil;
         NSError *error = nil;
         
-        object = [NSJSONSerialization JSONObjectWithData:data
-                                                 options:0
-                                                   error:&error];
+        Class jsonSerializationClass = NSClassFromString(@"NSJSONSerialization");
+        if (!jsonSerializationClass) {
+            object = [data objectFromJSONData];
+        }
+        else {
+            object = [NSJSONSerialization JSONObjectWithData:data
+                                                     options:0
+                                                       error:&error];
+        }
         
         dispatch_async(dispatch_get_main_queue(), ^(void){
             callback(object, error);

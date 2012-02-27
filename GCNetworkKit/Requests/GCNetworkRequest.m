@@ -187,8 +187,11 @@ NSUInteger const GCNetworkRequestUserDidCancelErrorCode = 110;
 #if TARGET_OS_IPHONE == 1 // continue in background is not neede in osx
 
         if (self.continueInBackground) {
-			__weak GCNetworkRequest *weakReference = self;
-
+#if __IPHONE_OS_VERSION_MAX_ALLOWED < 50000
+            __unsafe_unretained GCNetworkRequest *weakReference = self;
+#else
+            __weak GCNetworkRequest *weakReference = self;
+#endif
             UIApplication *app = [UIApplication sharedApplication];
             self.taskIdentifier = [app beginBackgroundTaskWithExpirationHandler:^{                 
                 if (weakReference.expirationHandler)

@@ -33,8 +33,12 @@
 #pragma mark - Twitter
 
 - (void)proceedTweets:(NSData *)data {
+    
+#if __IPHONE_OS_VERSION_MAX_ALLOWED < 50000
+    __unsafe_unretained TwitterTableViewController *weakReference = self;
+#else
     __weak TwitterTableViewController *weakReference = self;
-
+#endif
     // Transform JSON response to something useful
     TransformJSONDataToNSObject(data, ^(id object, NSError *error){
         NSDictionary *results = (NSDictionary *)object;
@@ -53,8 +57,13 @@
     });
 }
 
-- (void)loadTweets {    
+- (void)loadTweets {   
+    
+#if __IPHONE_OS_VERSION_MAX_ALLOWED < 50000
+    __unsafe_unretained TwitterTableViewController *weakReference = self;
+#else
     __weak TwitterTableViewController *weakReference = self;
+#endif    
 
     // Build GCNetworkRequest
     GCNetworkRequest *request = [GCNetworkRequest requestWithURL:[NSURL URLWithString:@"http://search.twitter.com/search.json"]];

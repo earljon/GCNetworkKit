@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A0652ED14FBCF47002A5F45 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A0652EC14FBCF47002A5F45 /* JSONKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		2C0ED78A144C69780078D776 /* NSString+GCNetworkRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C0ED773144C69780078D776 /* NSString+GCNetworkRequest.m */; };
 		2C0ED78B144C69780078D776 /* GCDataTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C0ED775144C69780078D776 /* GCDataTransformer.m */; };
 		2C0ED78C144C69780078D776 /* GCNetworkAPIWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C0ED777144C69780078D776 /* GCNetworkAPIWrapper.m */; };
@@ -31,6 +32,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0A0652EB14FBCF47002A5F45 /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONKit.h; sourceTree = "<group>"; };
+		0A0652EC14FBCF47002A5F45 /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONKit.m; sourceTree = "<group>"; };
 		2C0ED772144C69780078D776 /* NSString+GCNetworkRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+GCNetworkRequest.h"; sourceTree = "<group>"; };
 		2C0ED773144C69780078D776 /* NSString+GCNetworkRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+GCNetworkRequest.m"; sourceTree = "<group>"; };
 		2C0ED774144C69780078D776 /* GCDataTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDataTransformer.h; sourceTree = "<group>"; };
@@ -87,9 +90,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0A0652E914FBCF47002A5F45 /* Vendor */ = {
+			isa = PBXGroup;
+			children = (
+				0A0652EA14FBCF47002A5F45 /* JSONKit */,
+			);
+			path = Vendor;
+			sourceTree = "<group>";
+		};
+		0A0652EA14FBCF47002A5F45 /* JSONKit */ = {
+			isa = PBXGroup;
+			children = (
+				0A0652EB14FBCF47002A5F45 /* JSONKit.h */,
+				0A0652EC14FBCF47002A5F45 /* JSONKit.m */,
+			);
+			path = JSONKit;
+			sourceTree = "<group>";
+		};
 		2C0ED770144C69780078D776 /* GCNetworkKit */ = {
 			isa = PBXGroup;
 			children = (
+				0A0652E914FBCF47002A5F45 /* Vendor */,
 				2C0ED771144C69780078D776 /* Categories */,
 				2C0ED781144C69780078D776 /* Requests */,
 				2C0ED774144C69780078D776 /* GCDataTransformer.h */,
@@ -273,6 +294,7 @@
 				2C0ED7AA144C6B2A0078D776 /* TwitterTableViewController.m in Sources */,
 				2C0ED7AC144C6B2A0078D776 /* GCNetworkKitDemoAppDelegate.m in Sources */,
 				2C0ED7AD144C6B2A0078D776 /* main.m in Sources */,
+				0A0652ED14FBCF47002A5F45 /* JSONKit.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -285,7 +307,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_OBJCPP_ARC_ABI = YES;
+				CLANG_WARN_OBJCPP_ARC_ABI = NO;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Giulio Petek (6Q5PS57B83)";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -300,7 +322,7 @@
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "14448A3C-7D12-4F7C-BAE7-8EA14DCEB163";
 				SDKROOT = iphoneos;
 			};
@@ -312,7 +334,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_OBJCPP_ARC_ABI = YES;
+				CLANG_WARN_OBJCPP_ARC_ABI = NO;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -320,7 +342,7 @@
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -330,7 +352,7 @@
 		2C7C562B141D1BAA0021942E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_ARC = NO;
 				CLANG_WARN_OBJCPP_ARC_ABI = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -340,7 +362,7 @@
 				GCC_PREFIX_HEADER = "GCNetworkKitDemo/GCNetworkKitDemo-Prefix.pch";
 				GCC_VERSION = "";
 				INFOPLIST_FILE = "GCNetworkKitDemo/GCNetworkKitDemo-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -351,7 +373,7 @@
 		2C7C562C141D1BAA0021942E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_ARC = NO;
 				CLANG_WARN_OBJCPP_ARC_ABI = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -361,7 +383,7 @@
 				GCC_PREFIX_HEADER = "GCNetworkKitDemo/GCNetworkKitDemo-Prefix.pch";
 				GCC_VERSION = "";
 				INFOPLIST_FILE = "GCNetworkKitDemo/GCNetworkKitDemo-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";

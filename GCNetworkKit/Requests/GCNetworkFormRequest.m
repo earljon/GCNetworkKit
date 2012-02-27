@@ -92,8 +92,12 @@ const NSString *HTMLBoundary = @"s0M3HtM11BouN3Ary";
 - (void)start {
     self._cancelled = NO;
 
+#if __IPHONE_OS_VERSION_MAX_ALLOWED < 50000
+    __unsafe_unretained GCNetworkFormRequest *weakReference = self;
+#else
     __weak GCNetworkFormRequest *weakReference = self;
-
+#endif
+    
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
         while ([weakReference._writeQueue operationCount] > 0) {
             [[NSRunLoop currentRunLoop] runUntilDate:[NSDate date]];
@@ -134,8 +138,12 @@ const NSString *HTMLBoundary = @"s0M3HtM11BouN3Ary";
     if (!string || [string isEmpty] || !key)
         return;
     
+#if __IPHONE_OS_VERSION_MAX_ALLOWED < 50000
+    __unsafe_unretained GCNetworkFormRequest *weakReference = self;
+#else
     __weak GCNetworkFormRequest *weakReference = self;
-
+#endif
+    
     [self._writeQueue addOperationWithBlock:^{
         [weakReference _appendBodyString:weakReference._formattedBoundary];
         [weakReference _appendBodyString:[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"%@\"\r\n\r\n", key]];
@@ -170,7 +178,11 @@ const NSString *HTMLBoundary = @"s0M3HtM11BouN3Ary";
     if (!path || [path isEmpty] || !key)
         return;
     
+#if __IPHONE_OS_VERSION_MAX_ALLOWED < 50000
+    __unsafe_unretained GCNetworkFormRequest *weakReference = self;
+#else
     __weak GCNetworkFormRequest *weakReference = self;
+#endif
     
     [self._writeQueue addOperationWithBlock:^{
         NSString *contentType = [[path pathExtension] mimeType];
@@ -220,8 +232,12 @@ const NSString *HTMLBoundary = @"s0M3HtM11BouN3Ary";
     if (!data || !key)
         return;
     
+#if __IPHONE_OS_VERSION_MAX_ALLOWED < 50000
+    __unsafe_unretained GCNetworkFormRequest *weakReference = self;
+#else
     __weak GCNetworkFormRequest *weakReference = self;
-
+#endif
+    
     [self._writeQueue addOperationWithBlock:^{
         [weakReference _appendBodyString:weakReference._formattedBoundary];
         [weakReference _appendBodyString:@"Content-Disposition: form-data; "];
